@@ -18,8 +18,8 @@ class Solution(object):
                     profit = potsell - minbuy
                 if profit > maxprofit :
                     maxprofit =profit
-        print(f"max profit is {maxprofit}")
-                
+        #print(f"max profit is {maxprofit}")
+        return maxprofit       
                 
         
     
