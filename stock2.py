@@ -1,6 +1,5 @@
 class Solution(object):
         def maxProfit(prices):
-            maxprof = 0
             lenght = len(prices)
             if all(prices[i] >= prices[i+1] for i in range(lenght-1)):
                 maxprof = 0  # making profit is not possible in this case
@@ -22,6 +21,7 @@ class Solution(object):
                             if prices[j+1] < prices[j]:
                                 sell = prices[j]
                                 i = j
+                                break
                         profit = profit + sell - buy 
                         #print(f"buy  = {buy} , sell = {sell} , profit = {profit} , i = {i}")
                     else : 
