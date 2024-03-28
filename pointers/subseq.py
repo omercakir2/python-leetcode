@@ -1,5 +1,7 @@
 class Solution(object):
     def isSubsequence(self,s,t):
+        if len(s) > len(t) : return False
+        if len(s) == 0 : return True
         var = 0
         note = -1
         for i in range(len(s)):
