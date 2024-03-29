@@ -10,22 +10,35 @@ class Solution(object):
         :type board: List[List[str]]
         :rtype: bool
         """
-        #check1 , check2 , check3 = False ,False ,False
-        for i in range(9):
+        for i in range(9): # checking the list from left to right (horizontaly)
             arr = list(board[i])
             if self.has_unique_numbers(arr) == False:
                 print("it's not valid")
                 return False
             
-        for j in range (9):
+        for j in range (9): # checking the list from top to bottom (verticaly)
             verticallist = []
             for m in range(9):
                 verticallist.append((board[m])[j])
             if self.has_unique_numbers(verticallist) == False:
                 print("it's not valid")
                 return False
+        for hor in range(0,7,3):
+            for ver in range(0,7,3):
+                liste = []
+                for hora in range(hor,hor+3,1):
+                    for vert in range(ver,ver+3,1):
+                        liste.append((board[hora])[vert])
+                if self.has_unique_numbers(liste) == False:
+                    print("its not valid")
+                    return False
+                    
+
+
+
         print("its valid")
         return True
+    
             
         
         
