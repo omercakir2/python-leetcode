@@ -15,6 +15,9 @@ class Solution(object):
         for cchar in magazine:
             hash_map2[char] = hash_map2.get(cchar,0) + 1
 
+        for x in len(hash_map1):
+            if hash_map1[x]
+
          
 
 
