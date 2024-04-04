@@ -1,5 +1,5 @@
 class Solution(object):
-    def canConstruct(self,ransomNote,magazine):
+    def canConstruct(self, ransomNote, magazine):
         """
         :type ransomNote: str
         :type magazine: str
@@ -9,20 +9,15 @@ class Solution(object):
         """
         hash_map1 = {}
         hash_map2 = {}
+
         for char in ransomNote:
-            hash_map1[char] = hash_map1.get(char, 0) + 1
-        #print(hash_map1)
+            hash_map1[char] = hash_map1.get(char, 0) + 1 # mapping the letter in a dic
+
         for cchar in magazine:
-            hash_map2[char] = hash_map2.get(cchar,0) + 1
+            hash_map2[cchar] = hash_map2.get(cchar, 0) + 1
 
-        for x in len(hash_map1):
-            if hash_map1[x]
+        for k in ransomNote:
+            if hash_map1[k] > hash_map2.get(k, 0):  # Use get() to avoid KeyError
+                return False
 
-         
-
-
-str1 ="bg"            
-str2 = "bfaassbbdsc"
-sol = Solution()
-sol.canConstruct(str1,str2)
-
+        return True  # Return True after checking all characters
