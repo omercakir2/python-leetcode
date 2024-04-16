@@ -5,28 +5,20 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        nums = sorted(nums)
-        for i in range(len(nums)):
-            if target == nums[i]:
-                return 1
-        
-        binary = 1
-        mid = len(nums)//2 
-        first = 0
-        last = len(nums)-1
-        while binary == 1 :
-            if first+2 == last :
-                binary = 0
-                closest = first
-            if target > nums[mid] : 
-                first = nums[mid] 
-            else :
-                last = mid 
-            mid = (last+first)//2
-            print(f"{first},{mid},{last}")
-        
+        res = len(nums)+1
+        currentSum = 0
+        l = 0 
+        for index,value in enumerate(nums):
+            currentSum += value
+            while currentSum >= target:
+                res = min(res,index-l+1)
+                currentSum -= nums[l]
+                l +=1
+
+        returnval = res % (len(nums)+1)
+        return returnval
 list = [2,3,1,2,4,3]
-list-s =[1,2,2,3,3,4]
+lists =[1,2,2,3,3,4]
 targ = 7
 s = Solution()
 s.minSubArrayLen(targ,list)
