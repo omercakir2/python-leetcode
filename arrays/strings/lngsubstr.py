@@ -4,18 +4,21 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        cursub = ""
-        maxsub = ""
-        x,y = 0, 0 
-        
-        for index,char in enumerate(s):
-            cursub += char
-            if char in cursub:
-                if len(cursub) > len(maxsub):
-                    maxsub = cursub
-
-                cursub = cursub.replace(char,'')
+        cursub,maxsub = "" , ""
+        x , y = 0 , 1
+        while y < len(s)-1:
+            for i in range(0,len(cursub),1):
+                if s[y] == cursub[i]:
+                    x = i + 1
+                    if len(cursub) > len(maxsub):
+                        maxsub = cursub
+                        cursub = ""
+                else : 
+                    cursub += y
+            y +=1 
         return len(maxsub)
+
+    
                 
 
         
