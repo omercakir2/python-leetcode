@@ -1,15 +1,28 @@
-def get_max_depth(list,depth,index):
-    child1 = index + 2**depth
-    child2 = child1+1
-    
-    if list[child1] and list[child2] == 'null':
-        print(depth)
-    elif list[child1] and list[child2] != 'null':
-        depth +=1
-        get_max_depth(list,depth,child1)
-    else:
-        depth +=1
-        get_max_depth(list,depth,child2)
-    
-root = [3,9,20,'null','null',15,7]
-get_max_depth(root,0,0)
+#Definition for a binary tree node.
+class TreeNode(object):
+     def __init__(self, val=0, left=None, right=None):
+         self.val = val
+         self.left = left
+         self.right = right
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0 
+        ldepth=self.maxDepth(root.left)
+        rdepth=self.maxDepth(root.right)
+        return max(ldepth,rdepth)+1
+#[3,9,20,null,null,15,7]
+root = TreeNode(3)
+root.left = TreeNode(9)
+root.right = TreeNode(20)
+root.right.left = TreeNode(15)
+root.right.right = TreeNode(7)
+
+# Calculating the maximum depth
+solution = Solution()
+maxi = solution.maxDepth(root)
+print(maxi)
