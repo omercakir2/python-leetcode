@@ -1,7 +1,13 @@
 #In this code , my purpose is to merge 2 linked integer list which are ordered by decreasing order
 #Also to learn how to manage linked lists.
 
+###
 
+###    THIS CODE IS GIVING  WHAT WE WANT BUT
+###     IT ALSO CHANGES THE ORIJINAL LINKED LIST SO
+###       IT'S NOT THAT EFFICIENT
+
+###
 
 # Definition for singly-linked list.
 # class ListNode(object):
